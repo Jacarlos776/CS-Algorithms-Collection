@@ -28,10 +28,15 @@ for entry in os.listdir(path):
         with open(file_path, "r", encoding="latin-1", errors="ignore") as text:
             wordCounter.update(clean_text(text.read()).split()) # cleans the text, then splits them, then adds them to counter
 
-with open("output.txt", "w") as out:
+output_path = os.path.join("..", "data", "NLP", "output.txt")
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+with open(output_path, "w") as out:
     out.write(f"Total Words in {path.name}: {sum(wordCounter.values())} \n")
     out.write(f"Dictionary Size ({path.name}): {len(wordCounter)}\n\n")
     for word in sorted(wordCounter):
-        out.write(f"{word}	{wordCounter[word]}\n")
+        out.write(f"{word}\t{wordCounter[word]}\n")
+        
+print(f"Program successful! Please check {output_path}")
         
 print("Program successful! Please check output.txt")

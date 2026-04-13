@@ -182,7 +182,12 @@ def main():
     current_centroids, final_labels, n_iterations = apply_kmeans(features, k_clusters, initial_centroids)
     labeled_df = cleaned_data.copy()
     labeled_df['Cluster_Label'] = final_labels
-    output_data("output.txt", file_name, k_clusters, initial_centroids, current_centroids, final_labels, n_iterations, cleaned_data)
+    
+    # Updated output path logic
+    output_path = os.path.join("..", "data", "KMeans", "output.txt")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    output_data(output_path, file_name, k_clusters, initial_centroids, current_centroids, final_labels, n_iterations, cleaned_data)
     
     plot_clusters_on_map(labeled_df, k_clusters)
 if __name__ == "__main__":

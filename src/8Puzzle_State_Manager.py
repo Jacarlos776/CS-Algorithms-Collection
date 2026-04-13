@@ -118,8 +118,9 @@ MAIN
 '''
 
 # Opens file
+input_path = os.path.join("..", "data", "8Puzzle", "input.txt")
 try:
-    with open('input.txt', 'r') as file:
+    with open(input_path, 'r') as file:
         puzzle_list = []
         for line in file:
             clean_line = line.strip()
@@ -134,9 +135,8 @@ try:
             print("Error: input.txt is not a valid puzzle. Please use 0-8 numbers with no duplicates. Using default puzzle")
             puzzle_list = default_puzzle
 except FileNotFoundError:
-    print("Error: input.txt file not found. Default puzzle is used.")
+    print(f"Error: {input_path} file not found. Default puzzle is used.")
     puzzle_list = default_puzzle
-    
 except Exception as e:
     # Catches any other errors
     print(f"An unexpected error occurred: {e}. Default puzzle is used.")

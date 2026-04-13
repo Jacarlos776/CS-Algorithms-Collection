@@ -1,4 +1,5 @@
 from collections import Counter
+import os
 
 '''
 Global Variables
@@ -94,7 +95,8 @@ while True:
 print(f"\nParameters set: k={k}, p={p}")
 
 # move data from file to lists
-with open("weather_forecast_data.csv", "r") as data:
+input_path = os.path.join("..", "data", "KNN", "weather_forecast_data.csv")
+with open(input_path, "r") as data:
     header = data.readline().strip().split(',')
     for line in data:
         current_row = line.strip().split(',')
@@ -134,7 +136,10 @@ for i in range(TEST_SIZE):
 accuracy_percentage = (correct_predicitions / TEST_SIZE) * 100
 
 # write to file
-with open("output.txt", "w") as out:
+output_path = os.path.join("..", "data", "KNN", "output.txt")
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+with open(output_path, "w") as out:
     out.write("K-Nearest Neighbors for Weather Forecast Data\n")
     
     out.write(f"Dataset Size: {DATASET_SIZE}\n")
@@ -149,4 +154,4 @@ with open("output.txt", "w") as out:
     out.write(f"---------------------------\n")
     out.write(f"ACCURACY: {accuracy_percentage}%")
     
-    print("Computation successful. Check results in output.txt")
+    print(f"Computation successful. Check results in {output_path}")
