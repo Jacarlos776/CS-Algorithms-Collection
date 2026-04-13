@@ -136,7 +136,6 @@ accuracy_percentage = (correct_predicitions / TEST_SIZE) * 100
 # write to file
 with open("output.txt", "w") as out:
     out.write("K-Nearest Neighbors for Weather Forecast Data\n")
-    out.write("JACarlos, 2023-02928\n\n")
     
     out.write(f"Dataset Size: {DATASET_SIZE}\n")
     out.write(f"Train Size: {TRAIN_SIZE}\n")

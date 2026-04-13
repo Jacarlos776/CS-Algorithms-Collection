@@ -168,7 +168,6 @@ def output_data(file_name, data_name, k, initial_centroids, final_centroids, fin
             out.write(f"{label} : {description}[{lon}, {lat}]\n")
 
 def main():
-    # print("Main")
     # checks if number of arguments is correct
     if len(sys.argv) < 2:
         print("Usage: python carlos_exer8.py 'folder path'")
