@@ -36,5 +36,7 @@ While the core algorithmic logic is written from scratch, the following librarie
 
 ## ⚙️ How to Run
 1. Clone the repository: 
-   ```bash
-   git clone [https://github.com/Jacarlos776/Machine-Learning-Foundations.git](https://github.com/Jacarlos776/Machine-Learning-Foundations.git)
+        `git clone [https://github.com/Jacarlos776/Machine-Learning-Foundations.git](https://github.com/Jacarlos776/Machine-Learning-Foundations.git)`
+
+2. Install dependencies: 
+        `pip install -r requirements.txt`
